@@ -3,169 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed El Bouyahyaoui - Portfolio</title>
+    <title>Portfolio de Mohamed El Bouyahyaoui</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
-        :root {
-            --primary-color: #3B82F6;
-            --secondary-color: #10B981;
-            --bg-color: #F3F4F6;
-            --text-color: #1F2937;
-        }
-
-        * {
+        /* Style de base */
+        body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
+            background-color: #f7f7f7;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
+            text-align: center;
+            color: #333;
             overflow: hidden;
-            perspective: 1000px;
         }
 
         .container {
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-width: 900px;
+            background-color: #fff;
             padding: 40px;
-            width: 90%;
-            max-width: 600px;
-            text-align: center;
-            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            transform-style: preserve-3d;
-            transform: rotateX(10deg) rotateY(-10deg);
-            transition: all 0.6s ease;
+            transform: scale(1);
+            transition: transform 0.5s ease-in-out;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .container:hover {
-            transform: rotateX(0) rotateY(0);
-            box-shadow: 0 35px 60px -10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
         }
 
-        .profile-image {
-            width: 200px;
-            height: 200px;
+        img {
+            max-width: 160px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--primary-color);
-            margin: 0 auto 20px;
-            transition: transform 0.5s ease;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile-image:hover {
-            transform: scale(1.05) rotate(5deg);
-        }
-
-        .construction-badge {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 10px 20px;
-            border-radius: 50px;
-            display: inline-block;
             margin-bottom: 20px;
-            animation: pulse 2s infinite;
+            border: 5px solid #6c5ce7;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        h1 {
+            color: #2d3436;
+            font-size: 38px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #0984e3;
         }
 
-        .contact-section {
-            background-color: var(--bg-color);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-            position: relative;
-            overflow: hidden;
+        p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 30px;
         }
 
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(59, 130, 246, 0.05) 10px,
-                rgba(59, 130, 246, 0.05) 20px
-            );
-            animation: backgroundMove 10s linear infinite;
+        .loading {
+            font-size: 20px;
+            font-weight: bold;
+            color: #6c5ce7;
+            margin-top: 25px;
+            animation: blink 1.5s infinite;
+            text-transform: uppercase;
+            color: #0984e3;
         }
 
-        @keyframes backgroundMove {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* Animation pour l'attente */
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
         }
 
-        .contact-button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 12px 24px;
+        /* Animation d'apparition de la page */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .cta {
+            margin-top: 40px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .cta a {
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
+            color: #fff;
+            background-color: #e17055;
+            padding: 15px 35px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .contact-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: all 0.6s;
+        .cta a:hover {
+            background-color: #d35400;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
         }
 
-        .contact-button:hover::before {
-            left: 100%;
+        /* Réactivité pour mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            .cta a {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
         }
 
-        .contact-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="image.png" alt="Mohamed El Bouyahyaoui" class="profile-image">
-        
-        <h1 style="color: var(--text-color); margin-bottom: 15px;">Mohamed El Bouyahyaoui</h1>
-        
-        <div class="construction-badge">
-            🚧 Site en construction 🚧
-        </div>
-        
-        <p style="color: var(--text-color); margin-bottom: 30px;">
-            Bienvenue sur mon portfolio personnel. 
-            Je travaille actuellement à créer un espace unique pour présenter mes projets et compétences.
-        </p>
-        
-        <div class="contact-section">
-            <h2 style="color: var(--text-color); margin-bottom: 15px;">Contactez-moi</h2>
-            <a href="mailto:elbouyahyaoui.mohamed1@gmail.com" class="contact-button">
-                Collaborons ensemble
-            </a>
+        <!-- Image de Mohamed El Bouyahyaoui -->
+        <img src="image.png" alt="Mohamed El Bouyahyaoui">
+
+        <!-- Titre et message -->
+        <h1>Bienvenue sur mon portfolio 👋</h1>
+        <p><span style="font-weight: bold; color: #0984e3;">Mohamed EL BOUYAHYAOUI</span> ici ! 😊 Vous êtes sur mon site en cours de construction. Ce projet passionnant prend forme chaque jour, alors restez connecté ! 💻⚡</p>
+
+        <!-- Animation d'attente -->
+        <div class="loading">Chargement en cours... ⏳</div>
+
+        <!-- Call to action -->
+        <div class="cta">
+            <p>Si vous souhaitez me contacter pour discuter d'un projet, en savoir plus sur mon profil ou collaborer, n'hésitez pas à m'envoyer un message ! ✨</p>
+            <a href="mailto:mohamed.elb@example.com">Contacter Mohamed</a>
         </div>
     </div>
 </body>
